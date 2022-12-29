@@ -19,6 +19,7 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
 
+
 # try:
 #     prodURI = os.getenv('DATABASE_URL')
 #     prodURI = prodURI.replace("postgres://", "postgresql://")
