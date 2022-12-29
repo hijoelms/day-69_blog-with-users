@@ -20,8 +20,16 @@ ckeditor = CKEditor(app)
 Bootstrap(app)
 gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False, base_url=None)
 
+# try:
+#     prodURI = os.getenv('DATABASE_URL')
+#     prodURI = prodURI.replace("postgres://", "postgresql://")
+#     app.config['SQLALCHEMY_DATABASE_URI'] = prodURI
+#
+# except:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///MYDATABASE'
+#
 ##CONNECT TO DB
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'sqlite:///blog.db')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", 'sqlite:///blog.db').replace("postgres://", "postgresql://")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 login_manager.init_app(app)
