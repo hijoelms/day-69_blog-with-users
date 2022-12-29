@@ -12,7 +12,6 @@ from flask_gravatar import Gravatar
 from functools import wraps
 import os
 
-
 login_manager = LoginManager()
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get("SECRET_KEY")
